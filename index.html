@@ -19,6 +19,40 @@
       let playerScore;
       let computerScore;
 
+      game();
+
+      function game() {
+        playerScore = 0;
+        computerScore = 0;
+        for (let i = 0; i < 5; i++) {
+          userInput();
+          console.log(declareWinner);
+        }
+      }
+
+      function declareWinner() {
+        if (playerScore === computerScore) {
+          alert(playerScore + "-" + computerScore + "\nTie game!");
+          return playerScore + "-" + computerScore + "\nTie game!";
+        } else if (playerScore > computerScore) {
+          alert(playerScore + "-" + computerScore + "\nYou win!!");
+          return playerScore + "-" + computerScore + "\nYou win!!";
+        } else {
+          alert(
+            playerScore +
+              "-" +
+              computerScore +
+              "\nYou lost. Better luck next time!"
+          );
+          return (
+            playerScore +
+            "-" +
+            computerScore +
+            "\nYou lost. Better luck next time!"
+          );
+        }
+      }
+
       function userInput() {
         playerSelection = prompt("Rock, Paper, or Scissors?", "");
         if (
@@ -38,19 +72,33 @@
         playerSelection = playerSelection.toLowerCase();
         if (computerSelection === playerSelection) {
           alert("It's a tie!");
+          return (
+            "Tie game\nComputer Score: " +
+            computerScore +
+            "\nYour Score: " +
+            playerScore
+          );
         } else if (
           (computerSelection == "rock" && playerSelection == "scissors") ||
           (computerSelection == "paper" && playerSelection == "rock") ||
           (computerSelection == "scissors" && playerSelection == "paper")
         ) {
           alert("You lose!");
+          return (
+            "Computer Score: " +
+            ++computerScore +
+            "\nYour Score: " +
+            playerScore
+          );
         } else {
           alert("You win!");
+          return (
+            "Computer Score: " +
+            computerScore +
+            "\nYour Score: " +
+            ++playerScore
+          );
         }
-      }
-
-      function game() {
-        for (let i = 0; i < 5; i++) {}
       }
     </script>
   </body>
